@@ -28,5 +28,12 @@ static async Task Main()
 		}
 		seatIdList.Add(rowRange.First() * 8 + colRange.First());
 	}
-	seatIdList.Max().Dump();
+	seatIdList.Sort();
+	for (int i = 1; i < seatIdList.Count() - 1; i++)
+	{
+		if(seatIdList[i] - seatIdList[i-1] > 1) {
+			seatIdList[i].Dump();
+			seatIdList[i-1].Dump();
+		}
+	}
 }
