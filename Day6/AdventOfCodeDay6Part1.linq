@@ -6,19 +6,19 @@
 
 static async Task Main()
 {
-	var input = await File.ReadAllTextAsync(@"C:\code\AdventOfCode\Day6\input.txt");
+	var input = await File.ReadAllTextAsync(@"C:\code\AdventOfCode\Day6\test.txt");
 	List<string> groupList = input.Replace("\r", "").Split("\n\n").ToList();
 	int uniqueCount = 0;
+	groupList.Dump();
 	foreach(var group in groupList)
 	{
-		List<char> uniqueCharList = new List<char>();
-		foreach(var ch in group) {
-			if(ch != '\n')
-			uniqueCharList.Add(ch);
-			
+		var hashset = new HashSet<char>();
+		var groupCharArray = group.Replace("\n","").ToCharArray();
+		foreach(var g in groupCharArray)
+		{
+			hashset.Add(g);
 		}
-		uniqueCount += uniqueCharList.Distinct().Count();
-
+		uniqueCount += hashset.Count().Dump();
 	}
-			uniqueCount.Dump();
+	uniqueCount.Dump();
 }
