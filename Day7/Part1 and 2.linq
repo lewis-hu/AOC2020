@@ -55,7 +55,9 @@ public class Bag
 	{
 		Content.Dump(Name);
 		return Content.Sum(kv =>
-				kv.Value * (1 + GetBag(kv.Key, allBags).CalculateBags(allBags))
+					kv.Value * 
+					(1 + GetBag(kv.Key, allBags).CalculateBags(allBags)
+				)
 			);
 	}
 }
