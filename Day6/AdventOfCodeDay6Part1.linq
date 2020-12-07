@@ -9,7 +9,6 @@ static async Task Main()
 	var input = await File.ReadAllTextAsync(@"C:\code\AdventOfCode\Day6\test.txt");
 	List<string> groupList = input.Replace("\r", "").Split("\n\n").ToList();
 	int uniqueCount = 0;
-	groupList.Dump();
 	foreach(var group in groupList)
 	{
 		var hashset = new HashSet<char>();
@@ -18,7 +17,7 @@ static async Task Main()
 		{
 			hashset.Add(g);
 		}
-		uniqueCount += hashset.Count().Dump();
+		uniqueCount += hashset.Count();
 	}
 	uniqueCount.Dump();
 }
